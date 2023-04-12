@@ -10,13 +10,20 @@ namespace Lab2NET
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            var json = await GetBeer(1);
-            textBox1.Text = json;
-            var beer = JsonSerializer.Deserialize<List<Beer>>(json);
-            textBox1.Text = beer[0].description;
-            label1.Text = beer[0].name;
-            textBox3.Text = beer[0].description;
-            pictureBox1.ImageLocation = beer[0].image_url;
+            int id;
+            if (int.TryParse(textBox1.Text, out id))
+            {
+                textBox1.BackColor = Color.White;
+                var json = await GetBeer(id);
+                var beer = JsonSerializer.Deserialize<List<Beer>>(json);
+                textBox2.Text = beer[0].description;
+                label1.Text = beer[0].name;
+                textBox3.Text = beer[0].brewers_tips;
+                pictureBox1.ImageLocation = beer[0].image_url;
+            } else
+            {
+                textBox1.BackColor = ColorTranslator.FromHtml("#ffb5b6");
+            }
         }
 
         private async Task<string> GetBeer(int beer_id)
