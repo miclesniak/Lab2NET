@@ -38,6 +38,8 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            listBox1 = new ListBox();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -133,11 +135,33 @@
             label5.TabIndex = 11;
             label5.Text = "Zdjęcie";
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(826, 41);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(244, 304);
+            listBox1.TabIndex = 12;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(826, 376);
+            button2.Name = "button2";
+            button2.Size = new Size(127, 46);
+            button2.TabIndex = 13;
+            button2.Text = "Usuń";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1133, 464);
+            Controls.Add(button2);
+            Controls.Add(listBox1);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -167,5 +191,7 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private ListBox listBox1;
+        private Button button2;
     }
 }
